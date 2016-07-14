@@ -1,8 +1,7 @@
-require './user'
-require './bank_product'
-require './transaction'
+require_relative 'bank_product'
+require_relative 'transaction'
 class User
-  attr_accessor :name, :email, :id, :phone, :account
+  attr_accessor :name, :email, :id, :phone, :account, :products
   @@id_generator = Random.new
 
   def initialize(name, email, phone)

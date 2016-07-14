@@ -3,7 +3,7 @@ class BankProduct
   CREDIT_CARD_USAGE = 21_000
   LOAN_RATE = 0.012
   ACCOUNT_RATE = 0.01
-  attr_accessor :id, :type, :initial_value, :current_value
+  attr_accessor :id, :type, :initial_value, :current_value, :transactions
   @@random_id = Random.new
   def initialize(type, initial_value)
     @type = type
