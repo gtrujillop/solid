@@ -1,6 +1,9 @@
+require './user'
+require './bank_product'
+require './transaction'
 class User
   attr_accessor :name, :email, :id, :phone, :account
-  @@id_generator = Rand.new
+  @@id_generator = Random.new
 
   def initialize(name, email, phone)
     @name = name
@@ -18,11 +21,11 @@ class User
     product = @products.find do |p|
       p.type == type
     end
-    product.use_product(value, periods)
+    product.use_product(periods, value)
   end
 
   def check_transaction_history
-    product.each do |p|
+    @products.each do |p|
       p.transactions.each do |transaction|
         puts "Date and Hour: #{transaction.timestamp}"
         puts "Transaction Type: #{transaction.type}"

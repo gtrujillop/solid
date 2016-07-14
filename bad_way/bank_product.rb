@@ -24,9 +24,9 @@ class BankProduct
       end
     when 'loan'
       @current_value -= @initial_value
-      period_payment = ((value / periods) + (value * LOAN_RATE))
+      period_payment = ((@initial_value / periods) + (@initial_value * LOAN_RATE))
       puts "You must pay #{period_payment} per month in #{periods} month(s)"
-      @transactions << Transaction.new(value, 'Loan usage')
+      @transactions << Transaction.new(@initial_value, 'Loan usage')
     when 'account'
       if value
         @current_value -= value

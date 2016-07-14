@@ -3,7 +3,7 @@ class Transaction
   attr_accessor :timestamp, :value, :type
   def initialize(value, type)
     @value = value
-    @timestamp = Datetime.new
+    @timestamp = DateTime.new
     @type = type
   end
 end
