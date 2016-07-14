@@ -1,6 +1,5 @@
 require_relative '../../spec/spec_helper.rb'
 describe User do
-
   let(:name) { 'mock_user' }
   let(:email) { 'mock.user@miemail.com' }
   let(:phone) { '3245454' }
@@ -22,20 +21,30 @@ describe User do
       expect(user.products).to be_empty
     end
   end
-  describe 'add_product' do
+  describe '#add_product' do
     it 'adds a product to the list' do
       user.add_product(product)
       expect(user.products).to_not be_empty
     end
   end
-  describe 'use_product' do
+  describe '#use_product' do
     it 'adds a product to the list' do
       type = 'credit card'
       periods = 3
       value = 1_000_000
       current_value = product.current_value
       user.add_product(product)
-      expect{user.use_product(type, periods, value)}.to change{product.current_value}.from(current_value).to(current_value - value)
+      expect { user.use_product(type, periods, value) }.to change { product.current_value }.from(current_value).to(current_value - value)
+    end
+  end
+  describe '#use_product' do
+    it 'adds a product to the list' do
+      type = 'credit card'
+      periods = 3
+      value = 1_000_000
+      current_value = product.current_value
+      user.add_product(product)
+      expect { user.use_product(type, periods, value) }.to change { product.current_value }.from(current_value).to(current_value - value)
     end
   end
 end
